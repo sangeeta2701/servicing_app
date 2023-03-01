@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
+import '../widget/customButton.dart';
 import '../widget/textfield.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -26,19 +27,20 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Welcome back",
+                "Hey! Welcome To My Service",
                 style: headingTextStyle,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 5.0),
                 child: Text(
-                  "Please enter login details to use the app",
+                  "Please enter your login details to use the app",
                   style: contentTextStyle,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25.0),
                 child: TextFieldValue(
+                  textInputType: TextInputType.emailAddress,
                   hintText: "Enter Email",
                   controller: emailController,
                 ),
@@ -46,8 +48,15 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                   padding: const EdgeInsets.only(top: 25.0),
                   child: TextFieldValue(
+                      textInputType: TextInputType.visiblePassword,
                       hintText: "Enter Password",
                       controller: passwordController)),
+              Padding(
+                padding: const EdgeInsets.only(top: 40.0),
+                child: CustomThemeButton(
+                  buttonText: "Login",
+                ),
+              ),
             ],
           ),
         ),

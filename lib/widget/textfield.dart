@@ -3,20 +3,22 @@ import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
 class TextFieldValue extends StatelessWidget {
-  const TextFieldValue({
-    super.key,
-    required this.hintText,
-    required this.controller,
-  });
+  TextFieldValue(
+      {super.key,
+      required this.hintText,
+      required this.controller,
+      required this.textInputType});
   final String hintText;
   final TextEditingController controller;
+  final TextInputType textInputType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: textfieldTextStyle,
-      keyboardType: TextInputType.emailAddress,
+      controller: controller,
+      style: textFieldTextStyle,
+      keyboardType: textInputType,
       decoration: InputDecoration(
-        hintText: "Enter Email ",
+        hintText: hintText,
         hintStyle: hintTextStyle,
         // border: OutlineInputBorder(
         //   borderRadius: BorderRadius.circular(6),

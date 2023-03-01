@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 const Color appUiDarkColor = Colors.black;
 const Color appUiLightColor = Colors.white;
-const Color appUiThemeColor = Color.fromRGBO(218, 50, 135, 1);
+const Color appUiThemeColor = Color.fromRGBO(209, 23, 79, 1);
 const Color appUiTextColor = Color.fromRGBO(169, 169, 169, 1);
 const Color appUiBorderColor = Color.fromRGBO(198, 198, 198, 1);
 
@@ -16,5 +16,7 @@ TextStyle hintTextStyle = GoogleFonts.poppins(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: appUiTextColor.withOpacity(0.5));
-TextStyle textfieldTextStyle = GoogleFonts.poppins(
+TextStyle textFieldTextStyle = GoogleFonts.poppins(
     fontSize: 13, fontWeight: FontWeight.w400, color: appUiTextColor);
+TextStyle themeButtonTextStyle = GoogleFonts.poppins(
+    fontSize: 16, fontWeight: FontWeight.w500, color: appUiLightColor);

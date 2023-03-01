@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "SERVICING",
+              "My Service",
               style: GoogleFonts.lato(
                   fontWeight: FontWeight.w600,
                   fontSize: 40,
