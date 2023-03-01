@@ -1,5 +1,4 @@
-import 'package:car_servicing_app/screens/login_screeen.dart';
-import 'package:car_servicing_app/screens/splash_screen.dart';
+import 'package:car_servicing_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: HomeScreen(),
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+      ),
     );
   }
 }

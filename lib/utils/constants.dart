@@ -20,3 +20,10 @@ TextStyle textFieldTextStyle = GoogleFonts.poppins(
     fontSize: 13, fontWeight: FontWeight.w400, color: appUiTextColor);
 TextStyle themeButtonTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w500, color: appUiLightColor);
+TextStyle themeHeadingTextStyle = GoogleFonts.poppins(
+    fontSize: 22, fontWeight: FontWeight.w600, color: appUiThemeColor);
+TextStyle buttonTextStyle = GoogleFonts.poppins(
+    fontSize: 16, fontWeight: FontWeight.w500, color: appUiDarkColor);
+
+    TextStyle subHeadingTextStyle = GoogleFonts.poppins(
+    fontSize: 16, fontWeight: FontWeight.w500, color: appUiDarkColor);
