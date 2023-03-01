@@ -1,3 +1,6 @@
+import 'package:car_servicing_app/screens/garage/billList_page.dart';
+import 'package:car_servicing_app/screens/garage/servicesList_page.dart';
+import 'package:car_servicing_app/screens/garage/vehicleList_page.dart';
 import 'package:car_servicing_app/screens/newService_screen.dart';
 import 'package:car_servicing_app/widget/customButton.dart';
 import 'package:car_servicing_app/widget/textfield.dart';
@@ -67,7 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(top: 15.0),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NewServiceScreen(),),);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NewServiceScreen(),
+                      ),
+                    );
                   },
                   child: Container(
                     height: 50,
@@ -101,17 +109,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      garageContents(
-                          "Vehicles", "assets/images/img2.png", () {}),
+                      garageContents("Vehicles", "assets/images/img2.png", () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VehicleListPage(),
+                          ),
+                        );
+                      }),
                       Padding(
                         padding: const EdgeInsets.only(left: 15.0),
                         child: garageContents(
-                            "Services", "assets/images/img3.png", () {}),
+                            "Services", "assets/images/img3.png", () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ServicesListPage(),
+                            ),
+                          );
+                        }),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 15.0),
-                        child: garageContents(
-                            "Bills", "assets/images/img4.png", () {}),
+                        child: garageContents("Bills", "assets/images/img4.png",
+                            () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BillListPage(),
+                            ),
+                          );
+                        }),
                       ),
                     ],
                   ),

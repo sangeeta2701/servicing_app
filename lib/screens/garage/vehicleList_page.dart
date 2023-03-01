@@ -1,7 +1,6 @@
 import 'package:car_servicing_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
 import '../../model/vehicleListData.dart';
 import 'garageContents.dart';
 
