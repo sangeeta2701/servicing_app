@@ -27,3 +27,6 @@ TextStyle buttonTextStyle = GoogleFonts.poppins(
 
     TextStyle subHeadingTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w500, color: appUiDarkColor);
+
+    const TextStyle textfieldInputStyle =
+    TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: appUiDarkColor);
