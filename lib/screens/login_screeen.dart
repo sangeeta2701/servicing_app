@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
+import '../widget/textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,6 +11,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,40 +38,16 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25.0),
-                child: TextFormField(
-                  style: textfieldTextStyle,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    hintText: "Enter Email ",
-                    hintStyle: hintTextStyle,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6),
-                      borderSide: BorderSide(color: appUiThemeColor, width: 1),
-                    ),
-                  ),
+                child: TextFieldValue(
+                  hintText: "Enter Email",
+                  controller: emailController,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 25.0),
-                child: TextFormField(
-                  style: textfieldTextStyle,
-                  keyboardType: TextInputType.visiblePassword,
-                  decoration: InputDecoration(
-                    hintText: "Enter Password ",
-                    hintStyle: hintTextStyle,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6),
-                      borderSide: BorderSide(color: appUiThemeColor, width: 1),
-                    ),
-                  ),
-                ),
-              ),
+                  padding: const EdgeInsets.only(top: 25.0),
+                  child: TextFieldValue(
+                      hintText: "Enter Password",
+                      controller: passwordController)),
             ],
           ),
         ),

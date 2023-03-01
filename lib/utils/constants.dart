@@ -5,6 +5,7 @@ const Color appUiDarkColor = Colors.black;
 const Color appUiLightColor = Colors.white;
 const Color appUiThemeColor = Color.fromRGBO(218, 50, 135, 1);
 const Color appUiTextColor = Color.fromRGBO(169, 169, 169, 1);
+const Color appUiBorderColor = Color.fromRGBO(198, 198, 198, 1);
 
 //text style
 TextStyle headingTextStyle = GoogleFonts.poppins(
