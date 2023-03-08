@@ -64,7 +64,7 @@ class _VehicleListPageState extends State<VehicleListPage> {
                         child: CircularProgressIndicator(),
                       )
                     : SizedBox(
-                        height: 530,
+                        height: 580,
                         child: ListView.builder(
                             itemCount: vehicleList.length,
                             itemBuilder: (context, index) {

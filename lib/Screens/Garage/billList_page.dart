@@ -56,7 +56,7 @@ class _BillListPageState extends State<BillListPage> {
             GarageContents(
                 "Bills", "assets/images/img4.png", "Bill No.", "Amount"),
             SizedBox(
-              height: 530,
+              height: 580,
               child: billList.isEmpty
                   ? Center(
                       child: CircularProgressIndicator(),

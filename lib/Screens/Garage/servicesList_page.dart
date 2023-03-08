@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 
 import '../../model/servicesData.dart';
 import '../../utils/constants.dart';
-import 'garageContents.dart';
 import 'package:http/http.dart' as http;
 
 class ServicesListPage extends StatefulWidget {
@@ -68,7 +67,7 @@ class _ServicesListPageState extends State<ServicesListPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "VA",
+                      "My Servicing",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -114,24 +113,22 @@ class _ServicesListPageState extends State<ServicesListPage> {
             ),
           ),
           Divider(),
-          Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: serviceList.length == 0
-                  ? Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  : SizedBox(
-                      height: 600,
-                      child: ListView.builder(
-                          itemCount: serviceList.length,
-                          itemBuilder: (context, index) {
-                            // Service data = serviceList[index];
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: serviceContainer(index),
-                            );
-                          }),
-                    ))
+          serviceList.length == 0
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : SizedBox(
+                  height: 600,
+                  child: ListView.builder(
+                      itemCount: serviceList.length,
+                      itemBuilder: (context, index) {
+                        // Service data = serviceList[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: serviceContainer(index),
+                        );
+                      }),
+                )
         ])),
       ),
     );
@@ -140,155 +137,158 @@ class _ServicesListPageState extends State<ServicesListPage> {
   Widget serviceContainer(int index) {
     MyService data = serviceList[index];
     DateTime? date = DateTime.tryParse(data.serviceDate!);
-    return Container(
-      constraints: BoxConstraints(
-          // minHeight: 100,
-          maxHeight: 190,
-          maxWidth: double.infinity),
-      decoration: BoxDecoration(
-        border: Border.all(color: appUiBorderColor, width: 1),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          // "AV356",
-                          "${data.serviceId}",
-                          style: subHeadingTextStyle,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                              // " P/S- ",
-                              "${data.serviceType}",
-                              style: subHeadingTextStyle),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        "${data.vehicleKm}Km",
-                        style: hintTextStyle,
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  DateFormat.yMd().format(date!),
-                  style: hintTextStyle,
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Text(
-                "Zee mot",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: appUiDarkColor),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Row(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        constraints: BoxConstraints(
+            // minHeight: 100,
+            maxHeight: 190,
+            maxWidth: double.infinity),
+        decoration: BoxDecoration(
+          border: Border.all(color: appUiBorderColor, width: 1),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Total Amount",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: appUiDarkColor),
-                  ),
-                  Text(
-                    "Rs.${data.bill?.billAmount}",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: appUiDarkColor),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 30,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: appUiThemeColor),
-                        child: Center(
+                      Row(
+                        children: [
+                          Text(
+                            // "AV356",
+                            "${data.serviceId}",
+                            style: subHeadingTextStyle,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
                             child: Text(
-                          "Bill ${data.bill?.billNumber}",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: appUiLightColor,
-                              fontSize: 14),
-                        )),
+                                // " P/S- ",
+                                "${data.serviceType}",
+                                style: subHeadingTextStyle),
+                          ),
+                        ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Container(
-                          height: 30,
-                          width: 70,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              border:
-                                  Border.all(color: appUiBorderColor, width: 1),
-                              color: appUiLightColor),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.call,
-                                size: 16,
-                              ),
-                              SizedBox(
-                                width: 4,
-                              ),
-                              Text(
-                                "Call",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: appUiTextColor,
-                                    fontSize: 14),
-                              ),
-                            ],
-                          ),
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          "${data.vehicleKm}Km",
+                          style: hintTextStyle,
                         ),
                       ),
                     ],
                   ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.delete_outline,
-                        color: Colors.red,
-                        size: 25,
-                      ))
+                  Text(
+                    DateFormat.yMd().format(date!),
+                    style: hintTextStyle,
+                  ),
                 ],
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  "Zee mot",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: appUiDarkColor),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Total Amount",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: appUiDarkColor),
+                    ),
+                    Text(
+                      "Rs.${data.bill?.billAmount}",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: appUiDarkColor),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 30,
+                          width: 70,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              color: appUiThemeColor),
+                          child: Center(
+                              child: Text(
+                            "Bill ${data.bill?.billNumber}",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: appUiLightColor,
+                                fontSize: 14),
+                          )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Container(
+                            height: 30,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                border: Border.all(
+                                    color: appUiBorderColor, width: 1),
+                                color: appUiLightColor),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.call,
+                                  size: 16,
+                                ),
+                                SizedBox(
+                                  width: 4,
+                                ),
+                                Text(
+                                  "Call",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: appUiTextColor,
+                                      fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.delete_outline,
+                          color: Colors.red,
+                          size: 25,
+                        ))
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

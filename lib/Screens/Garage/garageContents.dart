@@ -29,7 +29,7 @@ class GarageContents extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "VA",
+                      "My Servicing",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
