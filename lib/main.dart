@@ -1,4 +1,4 @@
-import 'package:car_servicing_app/screens/home_screen.dart';
+import 'package:car_servicing_app/Screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: HomePage(),
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),

@@ -6,6 +6,7 @@ const Color appUiLightColor = Colors.white;
 const Color appUiThemeColor = Color.fromRGBO(209, 23, 79, 1);
 const Color appUiTextColor = Color.fromRGBO(169, 169, 169, 1);
 const Color appUiBorderColor = Color.fromRGBO(198, 198, 198, 1);
+const Color appUiContainerColor = Color.fromRGBO(235, 235, 235, 0.3);
 
 //text style
 TextStyle headingTextStyle = GoogleFonts.poppins(
@@ -25,8 +26,8 @@ TextStyle themeHeadingTextStyle = GoogleFonts.poppins(
 TextStyle buttonTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w500, color: appUiDarkColor);
 
-    TextStyle subHeadingTextStyle = GoogleFonts.poppins(
+TextStyle subHeadingTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w500, color: appUiDarkColor);
 
-    const TextStyle textfieldInputStyle =
+const TextStyle textfieldInputStyle =
     TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: appUiDarkColor);
