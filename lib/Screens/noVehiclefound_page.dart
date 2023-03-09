@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 import '../utils/constants.dart';
 import 'search_page.dart';
 
 class NoVehicleFoundPage extends StatefulWidget {
-  const NoVehicleFoundPage({Key? key}) : super(key: key);
+  NoVehicleFoundPage({Key? key, required this.cNo}) : super(key: key);
+  String cNo;
 
   @override
   State<NoVehicleFoundPage> createState() => _NoVehicleFoundPageState();
@@ -75,7 +75,8 @@ class _NoVehicleFoundPageState extends State<NoVehicleFoundPage> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
-                          "HR29AD1387",
+                          // "HR29AD1387",
+                          widget.cNo,
                           style: TextStyle(
                             decoration: TextDecoration.lineThrough,
                             fontSize: 32,

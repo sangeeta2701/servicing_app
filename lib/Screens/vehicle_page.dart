@@ -106,9 +106,6 @@ class _VehiclePageState extends State<VehiclePage> {
                     const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10),
                 child: Column(
                   children: [
-                    Image(
-                      image: AssetImage("assets/images/img1.jpg"),
-                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 15.0),
                       child: Container(

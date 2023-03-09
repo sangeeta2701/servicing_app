@@ -492,8 +492,6 @@ class _SearchPageState extends State<SearchPage> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 _addService();
-              } else {
-                Center(child: CircularProgressIndicator());
               }
             },
             backgroundColor: appUiThemeColor,

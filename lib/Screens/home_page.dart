@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 import 'Garage/billList_page.dart';
 import 'Garage/servicesList_page.dart';
+import 'noVehiclefound_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   TextEditingController numberController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  late String carNo;
 
   @override
   Widget build(BuildContext context) {
@@ -76,19 +78,15 @@ class _HomePageState extends State<HomePage> {
                     child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                VehiclePage(num: numberController.text),
-                          ),
-                        );
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => NoVehicleFoundPage(),
-                        //   ),
-                        // );
+                        if (formKey.currentState!.validate()) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  VehiclePage(num: numberController.text),
+                            ),
+                          );
+                        }
                       },
                       child: Container(
                         height: 45,
