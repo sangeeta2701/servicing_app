@@ -1,4 +1,5 @@
 import 'package:car_servicing_app/Screens/home_page.dart';
+import 'package:car_servicing_app/Screens/login_page.dart';
 import 'package:car_servicing_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(),
+          builder: (context) => LoginScreen(),
         ),
       );
     });

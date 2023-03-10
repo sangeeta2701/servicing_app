@@ -1,12 +1,13 @@
 import 'package:car_servicing_app/Screens/Garage/vehicleList_page.dart';
 import 'package:car_servicing_app/Screens/search_page.dart';
 import 'package:car_servicing_app/Screens/vehicle_page.dart';
+import 'package:car_servicing_app/widget/customButton.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
 import 'Garage/billList_page.dart';
 import 'Garage/servicesList_page.dart';
-import 'noVehiclefound_page.dart';
+// import 'noVehiclefound_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -74,39 +75,52 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {
-                        if (formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  VehiclePage(num: numberController.text),
-                            ),
-                          );
-                        }
-                      },
-                      child: Container(
-                        height: 45,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: appUiThemeColor,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Search",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                                color: appUiLightColor),
-                          ),
-                        ),
+                      padding: const EdgeInsets.only(top: 20.0),
+                      child: CustomThemeButton(
+                          buttonText: "Search",
+                          ontap: () {
+                            if (formKey.currentState!.validate()) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      VehiclePage(num: numberController.text),
+                                ),
+                              );
+                            }
+                          })
+                      // GestureDetector(
+                      //   behavior: HitTestBehavior.translucent,
+                      //   onTap: () {
+                      //     if (formKey.currentState!.validate()) {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //           builder: (context) =>
+                      //               VehiclePage(num: numberController.text),
+                      //         ),
+                      //       );
+                      //     }
+                      //   },
+                      //   child: Container(
+                      //     height: 45,
+                      //     width: double.infinity,
+                      //     decoration: BoxDecoration(
+                      //       color: appUiThemeColor,
+                      //       borderRadius: BorderRadius.circular(8),
+                      //     ),
+                      //     child: Center(
+                      //       child: Text(
+                      //         "Search",
+                      //         style: TextStyle(
+                      //             fontSize: 18,
+                      //             fontWeight: FontWeight.w400,
+                      //             color: appUiLightColor),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       ),
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                     child: GestureDetector(
